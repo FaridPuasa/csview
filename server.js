@@ -9,8 +9,8 @@ const app = express();
 //const exp_MohOrderList  = {};
 
 app.use(express.urlencoded({extended:true}))
-
 app.set('view engine', 'ejs');
+
 
 mongoose.connect('mongodb://goRush:gsb2332065@cluster0-shard-00-00.rikek.mongodb.net:27017,cluster0-shard-00-01.rikek.mongodb.net:27017,cluster0-shard-00-02.rikek.mongodb.net:27017/gorush?ssl=true&replicaSet=atlas-tr9az4-shard-0&authSource=admin&retryWrites=true&w=majority');
 

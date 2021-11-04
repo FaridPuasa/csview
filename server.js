@@ -43,11 +43,11 @@ const usersSchema = {
 const User = mongoose.model('User', usersSchema);
 
 app.get('/', (req, res) => {
-    User.find({}, function(err, users) {
-        res.render('index', {
-            UserList:  users
-        })
+    User.find({}, (err, users) => {
+        if (err) throw err
+        else res.render('index', {UserList:  users})
         console.log(users)
+        console.log(err)
     })
 })
 

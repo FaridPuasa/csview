@@ -7,6 +7,7 @@ const ejs = require('ejs');
 const UserList = {};
 const StandardMOHtestList = {};
 const exp_MohOrderList  = {};
+app.use(express.urlencoded({extended:true}))
 
 app.set('view engine', 'ejs');
 

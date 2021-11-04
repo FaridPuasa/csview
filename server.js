@@ -8,6 +8,13 @@ const app = express();
 //const StandardMOHtestList = {};
 //const exp_MohOrderList  = {};
 
+
+
+
+
+
+
+
 app.use(express.urlencoded({extended:true}))
 app.set('view engine', 'ejs');
 
@@ -279,6 +286,6 @@ app.get('/guestmoh', (req, res) => {
     res.render('guest_moh');
 })
 
-app.listen(4000, function() {
-    console.log('server is running');
-})
+const PORT = process.env.PORT || 4000;
+// Executing the sever on given port number
+app.listen(PORT, console.log(`Server started on port ${PORT}`));

@@ -1,12 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-var mongo = require('mongodb').MongoClient;
-var objectID = require('mongodb').ObjectID;
-const ejs = require('ejs');
-const UserList = {};
-const StandardMOHtestList = {};
-const exp_MohOrderList  = {};
+//var mongo = require('mongodb').MongoClient;
+//var objectID = require('mongodb').ObjectID;
+//const ejs = require('ejs');
+//const UserList = {};
+//const StandardMOHtestList = {};
+//const exp_MohOrderList  = {};
+
 app.use(express.urlencoded({extended:true}))
 
 app.set('view engine', 'ejs');

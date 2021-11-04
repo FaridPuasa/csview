@@ -1,16 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
+var mongo = require('mongodb').MongoClient;
+var objectID = require('mongodb').ObjectID;
+const ejs = require('ejs');
+const UserList = {};
+const StandardMOHtestList = {};
+const exp_MohOrderList  = {};
 
-app.use(express.urlencoded({extended:true}));
-//var mongo = require('mongodb').MongoClient;
-//var objectID = require('mongodb').ObjectID;
-//const UserList = {};
-//const StandardMOHtestList = {};
-//const exp_MohOrderList  = {};
-//app.use(express.static('public'))
-
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
 
 mongoose.connect('mongodb://goRush:gsb2332065@cluster0-shard-00-00.rikek.mongodb.net:27017,cluster0-shard-00-01.rikek.mongodb.net:27017,cluster0-shard-00-02.rikek.mongodb.net:27017/gorush?ssl=true&replicaSet=atlas-tr9az4-shard-0&authSource=admin&retryWrites=true&w=majority');
 
@@ -45,11 +43,11 @@ const usersSchema = {
 const User = mongoose.model('User', usersSchema);
 
 app.get('/', (req, res) => {
-    User.find({}, (err, users) => {
-        if (err) throw err
-        else res.render('index', {UserList:  users})
+    User.find({}, function(err, users) {
+        res.render('index', {
+            UserList:  users
+        })
         console.log(users)
-        console.log(err)
     })
 })
 
@@ -276,6 +274,13 @@ app.get('/stdphc', (req, res) => {
 })
 
 
-const PORT = process.env.PORT || 4000;
-// Executing the sever on given port number
-app.listen(PORT, console.log(`Server started on port ${PORT}`));
+
+app.get('/guestmoh', (req, res) => {
+    res.render('guest_moh');
+})
+
+app.use(express.urlencoded({extended:true}));
+
+app.listen(4000, function() {
+    console.log('server is running');
+})

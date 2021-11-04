@@ -1,14 +1,17 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const app = express();
-var mongo = require('mongodb').MongoClient;
-var objectID = require('mongodb').ObjectID;
 const ejs = require('ejs');
-const UserList = {};
-const StandardMOHtestList = {};
-const exp_MohOrderList  = {};
+const app = express();
 
-app.set('view engine', 'ejs');
+app.use(express.urlencoded({extended:true}));
+//var mongo = require('mongodb').MongoClient;
+//var objectID = require('mongodb').ObjectID;
+//const UserList = {};
+//const StandardMOHtestList = {};
+//const exp_MohOrderList  = {};
+//app.use(express.static('public'))
+
+app.set('view engine', 'ejs')
 
 mongoose.connect('mongodb://goRush:gsb2332065@cluster0-shard-00-00.rikek.mongodb.net:27017,cluster0-shard-00-01.rikek.mongodb.net:27017,cluster0-shard-00-02.rikek.mongodb.net:27017/gorush?ssl=true&replicaSet=atlas-tr9az4-shard-0&authSource=admin&retryWrites=true&w=majority');
 
@@ -274,6 +277,6 @@ app.get('/stdphc', (req, res) => {
 })
 
 
-app.listen(4000, function() {
-    console.log('server is running');
-})
+const PORT = process.env.PORT || 4000;
+// Executing the sever on given port number
+app.listen(PORT, console.log(`Server started on port ${PORT}`));

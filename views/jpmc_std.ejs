@@ -58,18 +58,19 @@
   
      <tbody>
         <tr>
-      <th scope="col">Quarantine</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Submitted Date</th>
+      <th scope="col">Payment</th>
+      <th scope="col">Type of Delivery</th>
       <th scope="col">Name</th>
+      <th scope="col">Patient Number</th>
       <th scope="col">Address</th>
-      <th scope="col">Bruhims</th>
+      <th scope="col">Remarks</th>
+      <th scope="col">Pharmacy</th>
+      <th scope="col">Quarantine</th>
       <th scope="col">IC Number</th>
       <th scope="col">Appointment Place</th>
-      <th scope="col">Phone Number</th>
       <th scope="col">Additional Phone Number</th>
-      <th scope="col">Type of Delivery</th>
-      <th scope="col">Remarks</th>
-      <th scope="col">Payment</th>
-      <th scope="col">Submitted Date</th>
      <th scope="col">Email</th>
      <th scope="col">Health Center Districts</th>
      <th scope="col">Notification</th>
@@ -79,24 +80,23 @@
      <tbody>
       <% std_JpmcOrderList.forEach(std_JpmcOrder => {%>
           <tr>
-            <td><%=  std_JpmcOrderList.qo %></td>
-              <th scope="row"><%= std_JpmcOrder.name %></th>
-              <td><%= std_JpmcOrder.kampong %>, <%= std_JpmcOrder.jalan %>, <%= std_JpmcOrder.simpang %>, <%= std_JpmcOrder.house_Number %></td>
-              <td><%= std_JpmcOrder.bruhims %></td>
+            <td><%= std_JpmcOrder.contact_1 %></td>
+            <td><%= std_JpmcOrder.dateSubmit %></td>
+            <td><%= std_JpmcOrder.pm %></td>
+            <td><%= std_JpmcOrder.radioTOD %></td>
+            <th scope="row"><%= std_JpmcOrder.name %></th>
+            <td><%= std_JpmcOrder.jpmc %></td>
+            <td><%= std_JpmcOrder.kampong %>, <%= std_JpmcOrder.jalan %>, <%= std_JpmcOrder.simpang %>, <%= std_JpmcOrder.house_Number %></td>
+            <td><%= std_JpmcOrder.re %></td>    
+            <td><%=  std_JpmcOrder.radioPHARMACY %></td>
+            <td><%=  std_JpmcOrder.qo %></td>
              <td><%= std_JpmcOrder.icNumber %></td>
-             <td><%= std_JpmcOrder.BNHC %>, <%= std_JpmcOrder.TUHC %>, <%= std_JpmcOrder.TEHC %>, <%= std_JpmcOrder.BHC %></td>
-              <td><%= std_JpmcOrder.contact_1 %></td>
               <td><%= std_JpmcOrder.contact_2 %></td>              
-              <td><%= std_JpmcOrder.radioTOD %></td>
-              <td><%= std_JpmcOrder.re %></td>
-              <td><%= std_JpmcOrder.pm %></td>
-              <td><%= std_JpmcOrder.dateSubmit %></td>
               <td><%= std_JpmcOrder.email %></td>
               <td><%= std_JpmcOrder.radioDistrict %></td>
               <td><%= std_JpmcOrder.radioNOTI %></td>
               <td><%= std_JpmcOrder.radioDURATION %><td>
               <td><%= std_JpmcOrder.ordertaken %></td>
-
           </tr>
       <%})%>
       </tbody>

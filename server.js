@@ -173,7 +173,9 @@ app.get('/ImeMOH', (req, res) => {
 
 const std_jpmcordersSchema = {
     name: String,
-    bruhims: String,
+    jpmc: String,
+    pjsc: String,
+    radioPHARMACY: String,
     passport: String,
     icNumber: String,
     kampong: String,
@@ -210,7 +212,9 @@ app.get('/stdjpmc', (req, res) => {
 
 const exp_jpmcordersSchema = {
     name: String,
-    bruhims: String,
+    jpmc: String,
+    pjsc: String,
+    radioPHARMACY: String,
     passport: String,
     icNumber: String,
     kampong: String,
@@ -247,7 +251,8 @@ app.get('/expjpmc', (req, res) => {
 
 const std_panagaordersSchema = {
     name: String,
-    bruhims: String,
+    jpmc: String,
+    pjsc: String,
     passport: String,
     icNumber: String,
     kampong: String,
